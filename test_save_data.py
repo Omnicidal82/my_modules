@@ -1,7 +1,8 @@
 import pytest
 import json
 from pathlib import Path
-from save_data import save_variable, load_variable, save_variables, load_variables
+from save_data import save_variable, load_variable
+from save_data import save_variables, load_variables
 
 def test_save_variable():
     save_variable("test", "var1")
@@ -31,4 +32,8 @@ def test_load_variables():
     var3 = ["list1", "list2", "list3"]
     save_variables(var1,var2, var3)
     variables = load_variables()
-    assert variables == {'var1': 'test_string', 'var2': 42, 'var3': ['list1', 'list2', 'list3']}
+    assert variables == {
+        'var1': 'test_string',
+        'var2': 42,
+        'var3': ['list1', 'list2', 'list3'],
+    }
